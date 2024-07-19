@@ -1,15 +1,12 @@
-import Footer from '@/components/footer';
-import Header from '@/components/header';
 import React from 'react';
-import Image from 'next/image';
-import Frame from '../../assets/Frame.svg';
+
 import { SalesList } from '../../utils/salesList';
 import FlashSales from './flashSales';
+import Slider from './slider';
 
 const HomePage = () => {
   return (
     <div>
-      <Header />
       <div className='flex ml-[8.5%] mr-[8.5%] justify-between mb-[140px]'>
         <div className='mt-[40px]'>
           {SalesList.map((sales, index) => {
@@ -24,12 +21,10 @@ const HomePage = () => {
           })}
         </div>
         <div className='mt-[40px]'>
-          <Image src={Frame} alt='frame' />
+          <Slider />
         </div>
       </div>
       <FlashSales />
-
-      <Footer />
     </div>
   );
 };
