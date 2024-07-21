@@ -1,42 +1,17 @@
 import React from 'react';
-import FlashSlider from './flashSlider';
+import CategoriesSlider from './categoriesSlider';
+// import FlashSlider from './flashSlider';
 
-const FlashSales = () => {
+const Categories = () => {
   return (
     <div className='ml-[8.5%] mr-[8.5%]'>
       <div className='flex gap-[10px] items-center mb-[24px] text-[16px]'>
         <div className='h-[40px] w-[20px] bg-[#DB4444] rounded-md'></div>
-        <div className='text-[#DB4444]'>Today's</div>
+        <div className='text-[#DB4444]'>Categories</div>
       </div>
       <div className='flex justify-between items-center'>
         <div className='flex gap-[87px] items-center'>
-          <div className='text-[30px] font-[600]'>Flash Sales</div>
-          <div className='flex items-center gap-5'>
-            <div className='flex flex-col items-center '>
-              <div className='text-[12px]'>Days</div>
-              <div className='flex gap-2 items-center'>
-                <div className='font-bold text-[32px]'>03</div>
-              </div>
-            </div>
-            <div className='flex flex-col items-center '>
-              <div className='text-[12px]'>Hours</div>
-              <div className='flex gap-2 items-center'>
-                <div className='font-bold text-[32px]'>03</div>
-              </div>
-            </div>
-            <div className='flex flex-col items-center '>
-              <div className='text-[12px]'>Minutes</div>
-              <div className='flex gap-2 items-center'>
-                <div className='font-bold text-[32px]'>03</div>
-              </div>
-            </div>
-            <div className='flex flex-col items-center '>
-              <div className='text-[12px]'>Seconds</div>
-              <div className='flex gap-2 items-center'>
-                <div className='font-bold text-[32px]'>03</div>
-              </div>
-            </div>
-          </div>
+          <div className='text-[30px] font-[600]'>Browse By Categories</div>
         </div>
 
         <div className='flex flex-row gap-3'>
@@ -81,11 +56,11 @@ const FlashSales = () => {
         </div>
       </div>
 
-      <div className=''>
-        <FlashSlider />
+      <div className='mt-14'>
+        <CategoriesSlider />
       </div>
     </div>
   );
 };
 
-export default FlashSales;
+export default Categories;

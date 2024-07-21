@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className='bg-[#000000] w-full h-full  pb-[24px] pt-[80px] '>
+    <div className='bg-[#000000] w-full h-full  pb-[24px] pt-[80px] mt-[140px] '>
       <div className=' flex justify-between  text-white ml-[8.5%] mr-[8.5%]'>
         <div className='flex flex-col  gap-5 cursor-pointer'>
           <div className='text-[14px]'>Exclusive</div>

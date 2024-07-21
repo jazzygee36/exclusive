@@ -1,8 +1,11 @@
 import React from 'react';
-
+import Image from 'next/image';
+import Frame from '../../assets/Frame.svg';
 import { SalesList } from '../../utils/salesList';
 import FlashSales from './flashSales';
-import Slider from './slider';
+import Categories from './categories';
+import BestSelling from './bestSelling';
+import SpeakerFrame from '../../assets/hufa.svg';
 
 const HomePage = () => {
   return (
@@ -21,10 +24,21 @@ const HomePage = () => {
           })}
         </div>
         <div className='mt-[40px]'>
-          <Slider />
+          <Image src={Frame} alt='frame' />
         </div>
       </div>
       <FlashSales />
+      <hr className='mb-16 mt-16  ml-[8.5%] mr-[8.5%]' />
+      <Categories />
+      <hr className='mb-16 mt-16  ml-[8.5%] mr-[8.5%]' />
+      <BestSelling />
+      <div className='flex justify-center'>
+        <Image
+          src={SpeakerFrame}
+          alt='speaker'
+          className='mt-[140px] flex justify-center ml-[8.5%] mr-[8.5%] '
+        />
+      </div>
     </div>
   );
 };
