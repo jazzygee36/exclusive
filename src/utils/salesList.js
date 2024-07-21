@@ -1,4 +1,4 @@
-export const SalesList = [
+export const SalesLists = [
   { list: 'Electonics' },
   { list: 'Home & Lifestyle' },
   { list: 'Medicine' },
