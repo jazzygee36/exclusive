@@ -6,6 +6,7 @@ import SpeakerFrame from '../../assets/hufa.svg';
 import Image from 'next/image';
 import SalesList from './salesList';
 import ExploreProduct from './exploreProduct';
+import NewArrival from './newArrival';
 
 const HomePage = () => {
   return (
@@ -24,6 +25,7 @@ const HomePage = () => {
         />
       </div>
       <ExploreProduct />
+      <NewArrival />
     </div>
   );
 };

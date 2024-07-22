@@ -11,7 +11,7 @@ const SalesList = () => {
           return (
             <div
               key={index}
-              className='text-[16px] sm:text-sm pb-4 cursor-pointer font-poppins  hover:underline'
+              className='hover:text-blue-800 text-[16px] sm:text-sm pb-4 cursor-pointer font-poppins  hover:underline'
             >
               {sales.list}
             </div>

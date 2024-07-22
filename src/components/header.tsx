@@ -13,10 +13,10 @@ export default function Header() {
       <div className='flex justify-between items-center ml-[8.5%] mr-[8.5%] mt-[47px] mb-[27px]'>
         <div className='font-bold text-[20px] text-[#000000]'>Exclusive</div>
         <ul className='flex items-center gap-16 cursor-pointer'>
-          <li>Home</li>
-          <li>Contact</li>
-          <li>About</li>
-          <li>Sign Up</li>
+          <li className='hover:underline'>Home</li>
+          <li className='hover:underline select-none'>Contact</li>
+          <li className='hover:underline select-none'>About</li>
+          <li className='hover:underline'>Sign Up</li>
         </ul>
 
         <div className='flex gap-4 items-center'>
