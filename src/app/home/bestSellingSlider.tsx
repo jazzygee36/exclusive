@@ -1,6 +1,6 @@
 'use client'; // for nextjs 13.4 user
 import Link from 'next/link';
-import React from 'react';
+import { useState } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import Cloth from '../../assets/cloth.svg';
 import Bag from '../../assets/bag.svg';
@@ -9,51 +9,58 @@ import Table from '../../assets/table.svg';
 import './Sliders.css';
 import Image from 'Next/Image';
 
+const filteredItems = [
+  {
+    id: 1,
+    img: Cloth,
+    description: 'HAVIT HV-G92 Gamepad',
+    price: '$120',
+  },
+  {
+    id: 2,
+    img: Bag,
+    description: 'AK-900 Wired Keyboard',
+    price: '$960',
+  },
+  {
+    id: 3,
+    img: Speaker,
+    description: 'IPS LCD Gaming Monitor',
+    price: '$380',
+  },
+  {
+    id: 4,
+    img: Table,
+    description: 'S-Series Comfort Chair ',
+    price: '$375',
+  },
+  {
+    id: 5,
+    img: Bag,
+    description: 'HAVIT HV-G92 Gamepad',
+    price: '$120',
+  },
+  {
+    id: 6,
+    img: Cloth,
+    description: 'IPS LCD Gaming Monitor',
+    price: '$380',
+  },
+  {
+    id: 7,
+    img: Speaker,
+    description: 'IPS LCD Gaming Monitor',
+    price: '$380',
+  },
+];
+
 const BestSellingSlider = () => {
-  const filteredItems = [
-    {
-      id: 1,
-      img: Cloth,
-      description: 'HAVIT HV-G92 Gamepad',
-      price: '$120',
-    },
-    {
-      id: 2,
-      img: Bag,
-      description: 'AK-900 Wired Keyboard',
-      price: '$960',
-    },
-    {
-      id: 3,
-      img: Speaker,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-    {
-      id: 4,
-      img: Table,
-      description: 'S-Series Comfort Chair ',
-      price: '$375',
-    },
-    {
-      id: 5,
-      img: Bag,
-      description: 'HAVIT HV-G92 Gamepad',
-      price: '$120',
-    },
-    {
-      id: 6,
-      img: Cloth,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-    {
-      id: 7,
-      img: Speaker,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-  ];
+  const [isHovered, setIsHovered] = useState<boolean | any>(false);
+
+  const handleCartId = (id: any) => {
+    console.log(id, 'idsss');
+    setIsHovered(id);
+  };
 
   // const slideLeft = () => {
   //   let slider = document.getElementById("slider");
@@ -81,8 +88,11 @@ const BestSellingSlider = () => {
           </div> */}
           <div className='row-container' id='slider'>
             {filteredItems.map((item) => (
-              <div className='flex flex-col'>
-                <div key={item.id} className='row-item'>
+              <div key={item.id} className='flex flex-col'>
+                <div
+                  className='row-item'
+                  onMouseEnter={() => setIsHovered(true)}
+                >
                   <div className='flex justify-between '>
                     <div className='flex justify-center items-center  rounded-md bg-[#DB4444] w-[55px] h-[26px] text-center text-white text-[12px]'>
                       -14%
@@ -141,6 +151,19 @@ const BestSellingSlider = () => {
                   </div> */}
                   </Link>
                 </div>
+                {isHovered && (
+                  <div
+                    onMouseLeave={() => {
+                      setIsHovered(item.id);
+                      setIsHovered(false);
+                    }}
+                    // onClick={() => handleCartId(item.id)}
+                    className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
+                  >
+                    add to Cart
+                  </div>
+                )}
+
                 <div className='flex flex-col gap-2'>
                   <div className='text-[16px] mt-3 font-semibold'>
                     {item.description}

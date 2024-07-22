@@ -1,6 +1,6 @@
 'use client'; // for nextjs 13.4 user
 import Link from 'next/link';
-import React from 'react';
+import React, { FC } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import GamePad from '../../assets/gamepad.svg';
 import Keyboard from '../../assets/keyboard.svg';
@@ -10,7 +10,11 @@ import './Sliders.css';
 import Image from 'Next/Image';
 import Button from '@/components/button';
 
-const FlashSlider = () => {
+interface Props {
+  handleCart?: () => void;
+}
+
+const FlashSlider: FC<Props> = ({ handleCart }) => {
   const filteredItems = [
     {
       id: 1,
@@ -82,8 +86,8 @@ const FlashSlider = () => {
           </div> */}
           <div className='row-container' id='slider'>
             {filteredItems.map((item) => (
-              <div className='flex flex-col'>
-                <div key={item.id} className='row-item'>
+              <div key={item.id} className='flex flex-col'>
+                <div className='row-item'>
                   <div className='flex justify-between '>
                     <div className='flex justify-center items-center  rounded-md bg-[#DB4444] w-[55px] h-[26px] text-center text-white text-[12px]'>
                       -14%
@@ -136,12 +140,15 @@ const FlashSlider = () => {
                         />
                       </svg>
                     </div>
-                    {/* <div className='item-description'>
-                    <p>{item.description}</p>
-                    <p className='item-price'>{item.price}$</p>
-                  </div> */}
                   </Link>
                 </div>
+                <div
+                  onClick={handleCart}
+                  className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
+                >
+                  add to Cart
+                </div>
+
                 <div className='flex flex-col gap-2'>
                   <div className='text-[16px] mt-3 font-semibold'>
                     {item.description}

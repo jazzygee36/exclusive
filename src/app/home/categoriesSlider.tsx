@@ -74,8 +74,8 @@ const CategoriesSlider = () => {
           </div> */}
           <div className='row-container' id='slider'>
             {filteredItems.map((item) => (
-              <div className='flex flex-col'>
-                <div key={item.id} className='row-item-category'>
+              <div key={item.id} className='flex flex-col'>
+                <div className='row-item-category'>
                   <Link href={`/`} className='link'>
                     <div className='item-header flex flex-col items-center m-auto'>
                       <Image

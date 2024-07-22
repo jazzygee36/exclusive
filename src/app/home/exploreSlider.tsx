@@ -82,8 +82,8 @@ const ExploreSlider = () => {
           </div> */}
           <div className='row-container' id='slider'>
             {filteredItems.map((item) => (
-              <div className='flex flex-col'>
-                <div key={item.id} className='row-item'>
+              <div key={item.id} className='flex flex-col'>
+                <div className='row-item'>
                   <div className='flex justify-between '>
                     <div></div>
                     <div>
