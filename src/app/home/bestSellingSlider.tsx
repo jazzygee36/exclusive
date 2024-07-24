@@ -2,57 +2,10 @@
 import Link from 'next/link';
 import { useState } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import Cloth from '../../assets/cloth.svg';
-import Bag from '../../assets/bag.svg';
-import Speaker from '../../assets/speaker.svg';
-import Table from '../../assets/table.svg';
+
 import './Sliders.css';
 import Image from 'Next/Image';
-
-const filteredItems = [
-  {
-    id: 1,
-    img: Cloth,
-    description: 'HAVIT HV-G92 Gamepad',
-    price: '$120',
-  },
-  {
-    id: 2,
-    img: Bag,
-    description: 'AK-900 Wired Keyboard',
-    price: '$960',
-  },
-  {
-    id: 3,
-    img: Speaker,
-    description: 'IPS LCD Gaming Monitor',
-    price: '$380',
-  },
-  {
-    id: 4,
-    img: Table,
-    description: 'S-Series Comfort Chair ',
-    price: '$375',
-  },
-  {
-    id: 5,
-    img: Bag,
-    description: 'HAVIT HV-G92 Gamepad',
-    price: '$120',
-  },
-  {
-    id: 6,
-    img: Cloth,
-    description: 'IPS LCD Gaming Monitor',
-    price: '$380',
-  },
-  {
-    id: 7,
-    img: Speaker,
-    description: 'IPS LCD Gaming Monitor',
-    price: '$380',
-  },
-];
+import { BestSellingItems } from '../../utils/productsItem';
 
 const BestSellingSlider = () => {
   const [isHovered, setIsHovered] = useState<boolean | any>(false);
@@ -87,7 +40,7 @@ const BestSellingSlider = () => {
             </div>
           </div> */}
           <div className='row-container' id='slider'>
-            {filteredItems.map((item) => (
+            {BestSellingItems.map((item) => (
               <div key={item.id} className='flex flex-col'>
                 <div
                   className='row-item'

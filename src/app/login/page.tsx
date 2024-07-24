@@ -25,7 +25,7 @@ const Login = () => {
         </div>
         <div className='flex justify-between items-center mt-10 gap-16'>
           <div className='w-[100%]'>
-            <Button title={'Log in'} />
+            <Button title={'Log in'} bg={'#DB4444'} textColor={'white'} />
           </div>
           <div className='text-[#DB4444] font-normal text-[16px] w-[100%] '>
             Forget Password?

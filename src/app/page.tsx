@@ -1,9 +1,9 @@
-import HomePage from './home/page';
+import SignUp from './signup/page';
 
 export default function Home() {
   return (
     <div>
-      <HomePage />
+      <SignUp />
     </div>
   );
 }

@@ -2,63 +2,19 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import GamePad from '../../assets/gamepad.svg';
-import Keyboard from '../../assets/keyboard.svg';
-import TvStand from '../../assets/tvstand.svg';
-import Chair from '../../assets/chair.svg';
+
 import './Sliders.css';
 import Image from 'Next/Image';
 import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
+import { FlashItems } from '../../utils/productsItem';
 
 interface Props {
   handleCart?: () => void;
 }
 
 const FlashSlider: FC<Props> = ({ handleCart }) => {
-  const filteredItems = [
-    {
-      id: 1,
-      img: GamePad,
-      description: 'HAVIT HV-G92 Gamepad',
-      price: '$120',
-    },
-    {
-      id: 2,
-      img: Keyboard,
-      description: 'AK-900 Wired Keyboard',
-      price: '$960',
-    },
-    {
-      id: 3,
-      img: TvStand,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-    {
-      id: 4,
-      img: Chair,
-      description: 'S-Series Comfort Chair ',
-      price: '$375',
-    },
-    {
-      id: 5,
-      img: GamePad,
-      description: 'HAVIT HV-G92 Gamepad',
-      price: '$120',
-    },
-    {
-      id: 6,
-      img: GamePad,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-    {
-      id: 7,
-      img: GamePad,
-      description: 'IPS LCD Gaming Monitor',
-      price: '$380',
-    },
-  ];
+  const router = useRouter();
 
   // const slideLeft = () => {
   //   let slider = document.getElementById("slider");
@@ -85,7 +41,7 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
             </div>
           </div> */}
           <div className='row-container' id='slider'>
-            {filteredItems.map((item) => (
+            {FlashItems.map((item) => (
               <div key={item.id} className='flex flex-col'>
                 <div className='row-item'>
                   <div className='flex justify-between '>
@@ -159,7 +115,14 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
             ))}
           </div>
           <div className='w-[20%] items-center m-auto mt-16'>
-            <Button title={'View All Products'} />
+            <Button
+              title={'View All Products'}
+              bg={'#DB4444'}
+              textColor={'white'}
+              onClick={() => {
+                router.push('/products');
+              }}
+            />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const BestSelling = () => {
           <div className='text-[30px] font-[600]'>Best Selling Products</div>
         </div>
         <div className='w-[15%]'>
-          <Button title={'View All '} />
+          <Button title={'View All '} bg={'#DB4444'} textColor={'white'} />
         </div>
       </div>
 

@@ -9,8 +9,10 @@ import Table from '../../assets/table.svg';
 import './Sliders.css';
 import Image from 'Next/Image';
 import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
 
 const ExploreSlider = () => {
+  const router = useRouter();
   const filteredItems = [
     {
       id: 1,
@@ -150,7 +152,12 @@ const ExploreSlider = () => {
             ))}
           </div>
           <div className='w-[20%] items-center m-auto mt-16'>
-            <Button title={'View All Products'} />
+            <Button
+              title={'View All Products'}
+              bg={'#DB4444'}
+              textColor={'white'}
+              onClick={() => router.push('/products')}
+            />
           </div>
         </div>
       </div>
