@@ -13,7 +13,9 @@ export default function Header() {
   const Users = [
     {
       title: 'My Order',
-      onClick: () => {},
+      onClick: () => {
+        router.push('/orders');
+      },
       icon: (
         <svg
           className='w-6 h-6 text-gray-800 dark:text-white'
@@ -63,7 +65,7 @@ export default function Header() {
     },
   ];
 
-  const { user, handleUserLogout } = context;
+  const { user, handleUserLogout, orders } = context;
 
   return (
     <div className=''>
@@ -92,6 +94,12 @@ export default function Header() {
               Home
             </li>
           )}
+          <li
+            onClick={() => router.push('/about')}
+            className='hover:underline select-none'
+          >
+            About
+          </li>
 
           <li
             className='hover:underline select-none'
@@ -99,12 +107,7 @@ export default function Header() {
           >
             Contact
           </li>
-          <li
-            onClick={() => router.push('/about')}
-            className='hover:underline select-none'
-          >
-            About
-          </li>
+
           {/* <li
             className='hover:underline'
             onClick={() => router.push('/signup')}
@@ -158,7 +161,7 @@ export default function Header() {
             </svg>
             <div className='relative'>
               <div className='text-[#DB4444] relatve text-[12px]  font-bold '>
-                0
+                {orders}
               </div>
 
               <svg

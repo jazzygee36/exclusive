@@ -5,7 +5,9 @@ interface MyContextType {
   user: boolean;
   handleUser: any;
   handleUserLogout: any;
-  userLogout: boolean;
+  // userLogout: boolean;
+  handleMyCart: any;
+  orders: number;
 }
 
 // Create the context with a default value
@@ -17,7 +19,9 @@ export const MyProvider: FC<{ children: ReactNode; key: string }> = ({
   key,
 }) => {
   const [user, setUser] = useState(false);
-  const [userLogout, setUserLogout] = useState(true);
+  // const [userLogout, setUserLogout] = useState(true);
+  const [orders, setOrders] = useState(0);
+  console.log('oreders', orders);
 
   const handleUser = () => {
     setUser(true);
@@ -26,9 +30,13 @@ export const MyProvider: FC<{ children: ReactNode; key: string }> = ({
     setUser(false);
   };
 
+  const handleMyCart = () => {
+    setOrders((prev) => prev + 1);
+  };
+
   return (
     <MyContext.Provider
-      value={{ user, handleUser, handleUserLogout, userLogout }}
+      value={{ user, handleUser, handleUserLogout, handleMyCart, orders }}
     >
       {children}
     </MyContext.Provider>
