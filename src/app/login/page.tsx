@@ -31,10 +31,10 @@ const Login = () => {
             Forget Password?
           </div>
         </div>
-        <div className='text-[16px] font-semibold text-center mt-8'>
-          Don't have an account? &ensp;{' '}
+        <div className='text-[16px] font-semibold  mt-8'>
+          Don't have an account?
           <span
-            className='cursor-pointer hover:underline'
+            className='cursor-pointer hover:underline ml-2'
             onClick={() => router.push('/signup')}
           >
             Sign up

@@ -23,8 +23,8 @@ const AllProducts = () => {
       </div>
       <div className='flex flex-wrap gap-3  justify-between mt-5'>
         {FlashItems.map((item) => (
-          <div className='w-1/4'>
-            <div key={item.id} className='flex flex-col '>
+          <div className='w-1/4' key={item.id}>
+            <div className='flex flex-col '>
               <div className='row-item'>
                 <div className='flex justify-between '>
                   <div className='flex justify-center items-center  rounded-md bg-[#DB4444] w-[55px] h-[26px] text-center text-white text-[12px]'>

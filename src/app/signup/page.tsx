@@ -67,9 +67,9 @@ const SignUp = () => {
             />
           </div>
           <div className='text-[16px] font-semibold text-center mt-8'>
-            Already have account? &ensp;{' '}
+            Already have account?
             <span
-              className='cursor-pointer hover:underline'
+              className='cursor-pointer hover:underline ml-2'
               onClick={() => router.push('/login')}
             >
               Log in
