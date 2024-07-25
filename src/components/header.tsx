@@ -77,7 +77,12 @@ export default function Header() {
       </div>
 
       <div className='flex justify-between items-center ml-[8.5%] mr-[8.5%] mt-[47px] mb-[27px]'>
-        <div className='font-bold text-[20px] text-[#000000]'>Exclusive</div>
+        <div
+          onClick={() => router.push('/signup')}
+          className='font-bold text-[20px] text-[#000000] cursor-pointer'
+        >
+          Exclusive
+        </div>
         <ul className='flex items-center gap-16 cursor-pointer'>
           {user && (
             <li
@@ -88,8 +93,18 @@ export default function Header() {
             </li>
           )}
 
-          <li className='hover:underline select-none'>Contact</li>
-          <li className='hover:underline select-none'>About</li>
+          <li
+            className='hover:underline select-none'
+            onClick={() => router.push('/contact')}
+          >
+            Contact
+          </li>
+          <li
+            onClick={() => router.push('/about')}
+            className='hover:underline select-none'
+          >
+            About
+          </li>
           {/* <li
             className='hover:underline'
             onClick={() => router.push('/signup')}
