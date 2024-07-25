@@ -31,14 +31,14 @@ const Login = () => {
             Forget Password?
           </div>
         </div>
-        <div className='text-[16px] font-semibold  mt-8'>
+        <div className='text-[16px] font-semibold flex  mt-8'>
           Don't have an account?
-          <span
+          <div
             className='cursor-pointer hover:underline ml-2'
             onClick={() => router.push('/signup')}
           >
             Sign up
-          </span>
+          </div>
         </div>
       </div>
     </div>
