@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 import './Sliders.css';
-import Image from 'Next/Image';
+import Image from 'next/image';
 import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 import { FlashItems } from '../../utils/productsItem';

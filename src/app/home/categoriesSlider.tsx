@@ -7,7 +7,7 @@ import Keyboard from '../../assets/keyboard.svg';
 import TvStand from '../../assets/tvstand.svg';
 import Chair from '../../assets/chair.svg';
 import './Sliders.css';
-import Image from 'Next/Image';
+import Image from 'next/image';
 
 const CategoriesSlider = () => {
   const filteredItems = [

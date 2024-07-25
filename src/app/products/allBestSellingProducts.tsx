@@ -1,5 +1,5 @@
 import { BestSellingItems } from '@/utils/productsItem';
-import Image from 'Next/Image';
+import Image from 'next/image';
 
 const AllBestSellingProducts = () => {
   return (

@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 import './Sliders.css';
-import Image from 'Next/Image';
+import Image from 'next/image';
 import { BestSellingItems } from '../../utils/productsItem';
 
 const BestSellingSlider = () => {

@@ -7,7 +7,7 @@ import Bag from '../../assets/bag.svg';
 import Speaker from '../../assets/speaker.svg';
 import Table from '../../assets/table.svg';
 import './Sliders.css';
-import Image from 'Next/Image';
+import Image from 'next/image';
 import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 

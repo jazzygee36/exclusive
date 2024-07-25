@@ -4,6 +4,8 @@ import { createContext, useState, ReactNode, FC, useEffect } from 'react';
 interface MyContextType {
   user: boolean;
   handleUser: any;
+  handleUserLogout: any;
+  userLogout: boolean;
 }
 
 // Create the context with a default value
@@ -15,15 +17,19 @@ export const MyProvider: FC<{ children: ReactNode; key: string }> = ({
   key,
 }) => {
   const [user, setUser] = useState(false);
+  const [userLogout, setUserLogout] = useState(true);
 
   const handleUser = () => {
     setUser(true);
   };
-  // useEffect(() => {
-  //   handleUser();
-  // }, [handleUser]);
+  const handleUserLogout = () => {
+    setUser(false);
+  };
+
   return (
-    <MyContext.Provider value={{ user, handleUser }}>
+    <MyContext.Provider
+      value={{ user, handleUser, handleUserLogout, userLogout }}
+    >
       {children}
     </MyContext.Provider>
   );
