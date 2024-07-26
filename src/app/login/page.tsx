@@ -9,12 +9,12 @@ import { useRouter } from 'next/navigation';
 const Login = () => {
   const router = useRouter();
   return (
-    <div className='flex  gap-32 mt-[60px]'>
-      <div className='w-[50%] '>
+    <div className='flex justify-center gap-32 lg:mt-[60px]'>
+      <div className='w-[50%] hidden lg:block '>
         <Image src={Signup} alt='signup' />
       </div>
-      <div className='flex flex-col  w-[50%] mt-[90.5px] scroll'>
-        <div className='w-[75%]'>
+      <div className='flex flex-col  lg:w-[50%] sm:w-[100%] mt-[90.5px] scroll'>
+        <div className='lg:w-[75%] sm:w-[100%]'>
           <div className='font-semibold text-[36px]'>Log in to Exclusive</div>
           <div className='text-[16px] font-medium'>
             Enter your details below
