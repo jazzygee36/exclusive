@@ -1,7 +1,12 @@
+'use client';
 import { BestSellingItems } from '@/utils/productsItem';
 import Image from 'next/image';
+import React, { FC, useContext } from 'react';
+import MyContext from '@/useContexts/store';
 
 const AllBestSellingProducts = () => {
+  const context = useContext(MyContext);
+  const { handleMyCart } = context;
   return (
     <>
       <div className='h-12 w-full bg-black text-white flex justify-center text-center items-center font-bold mt-16'>
@@ -65,7 +70,10 @@ const AllBestSellingProducts = () => {
               </div>
             </div>
 
-            <div className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'>
+            <div
+              onClick={() => handleMyCart(item.description)}
+              className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
+            >
               add to Cart
             </div>
 

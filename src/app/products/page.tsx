@@ -4,12 +4,17 @@ import FlashBanner from '../../assets/flashbanner.png';
 import { useRouter } from 'next/navigation';
 import { FlashItems } from '@/utils/productsItem';
 import AllBestSellingProducts from './allBestSellingProducts';
+import MyContext from '@/useContexts/store';
+import React, { FC, useContext } from 'react';
+
 // import '../home/Sliders.css';
 
 const AllProducts = () => {
   const router = useRouter();
+  const context = useContext(MyContext);
+  const { handleMyCart } = context;
   return (
-    <div className='pt-8  ml-[8.5%] mr-[8.5%]'>
+    <div className='pt-8  ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
       <div
         onClick={() => {
           router.back();
@@ -21,9 +26,9 @@ const AllProducts = () => {
       <div className='flex  justify-center '>
         <Image src={FlashBanner} alt='banner' />
       </div>
-      <div className='flex flex-wrap gap-3  justify-between mt-5'>
+      <div className='flex flex-wrap gap-3  justify-between mt-10 lg:mt-5'>
         {FlashItems.map((item) => (
-          <div className='w-1/4' key={item.id}>
+          <div className='w-1/3 lg:w-1/4' key={item.id}>
             <div className='flex flex-col '>
               <div className='row-item'>
                 <div className='flex justify-between '>
@@ -80,8 +85,8 @@ const AllProducts = () => {
                 </div>
               </div>
               <div
-                //   onClick={handleCart}
-                className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
+                onClick={() => handleMyCart(item.description)}
+                className='cursor-pointer h-7 lg:h-[41px] flex items-center justify-center bg-black text-sm lg:text-[16px]  text-white text-center'
               >
                 add to Cart
               </div>
