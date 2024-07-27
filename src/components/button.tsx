@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
+import React, { Children, FC } from 'react';
 
 interface Props {
-  title: string;
+  children: React.ReactNode;
   bg: any;
   border?: string;
   textColor: any;
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ title, bg, border, textColor, onClick }) => {
+const Button: FC<Props> = ({ children, bg, border, textColor, onClick }) => {
   return (
-    <div
+    <button
       onClick={onClick}
       className={` border border-${border} cursor-pointer rounded-md w-[100%] h-[56px] bg-[${bg}] text-center text-${textColor} font-semibold flex items-center justify-center`}
     >
-      {title}
-    </div>
+      {children}
+    </button>
   );
 };
 

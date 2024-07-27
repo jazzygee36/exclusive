@@ -35,8 +35,8 @@ export default function About() {
         back
       </div>
       <div className=''>
-        <div className='flex justify-between ml-[8.5%] mt-[80px] items-center'>
-          <div className='w-[45%]'>
+        <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap gap-6 sm:gap-4 items-center   ml-[8.5%] mr-0 sm:mr-[8.5%] lg:mr-0   mt-[80px] '>
+          <div className='w-[100%]'>
             <div className='text-[54px] font-semibold'>Our Story</div> <br />
             <div className='text-[16px] font-normal'>
               Launced in 2015, Exclusive is South Asia’s premier online shopping
@@ -52,16 +52,16 @@ export default function About() {
               ranging from consumer.
             </div>
           </div>
-          <div className='w-[50%]'>
+          <div className='w-[100%]'>
             <Image src={AboutImg} alt='about' />
           </div>
         </div>
-        <div className='flex ml-[8.5%] mr-[8.5%] justify-between mt-36'>
+        {/* <div className='flex ml-[8.5%] mr-[8.5%] justify-between mt-36'>
           <Image src={Samson} alt='sam' />
           <Image src={Samson} alt='sam' />
           <Image src={Samson} alt='sam' />
-        </div>
-        <div className='flex justify-around mt-[140px]'>
+        </div> */}
+        <div className='grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3  gap-7 mt-[140px]'>
           <div className='text-center'>
             <div className='bg-[#2F2E30] h-[80px] w-[80px] rounded-full m-auto flex justify-center items-center mb-6'>
               <svg

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className='bg-[#000000] w-full h-full  pb-[24px] pt-[80px] mt-[140px] '>
-      <div className=' flex justify-between  text-white ml-[8.5%] mr-[8.5%]'>
+      <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-10 sm:gap-6    text-white ml-[8.5%] mr-[8.5%]'>
         <div className='flex flex-col  gap-5 cursor-pointer'>
           <div className='text-[14px]'>Exclusive</div>
           <div className='text-[12px]'>Subscribe</div>

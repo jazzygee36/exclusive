@@ -153,11 +153,12 @@ const ExploreSlider = () => {
           </div>
           <div className='w-[20%] items-center m-auto mt-16'>
             <Button
-              title={'View All Products'}
               bg={'#DB4444'}
               textColor={'white'}
               onClick={() => router.push('/products')}
-            />
+            >
+              View All Products
+            </Button>
           </div>
         </div>
       </div>
