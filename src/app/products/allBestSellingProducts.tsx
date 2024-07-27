@@ -15,7 +15,7 @@ const AllBestSellingProducts = () => {
 
       <div className='flex flex-wrap gap-3  justify-between mt-10'>
         {BestSellingItems.map((item) => (
-          <div key={item.id} className='flex flex-col w-1/4'>
+          <div key={item.id} className='w-1/3 lg:w-1/4'>
             <div
               className='row-item'
               //   onMouseEnter={() => setIsHovered(true)}
@@ -72,7 +72,7 @@ const AllBestSellingProducts = () => {
 
             <div
               onClick={() => handleMyCart(item.description)}
-              className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
+              className='cursor-pointer h-7 lg:h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
             >
               add to Cart
             </div>
