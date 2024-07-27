@@ -1,8 +1,11 @@
 import React from 'react';
 import BestSellingSlider from './bestSellingSlider';
 import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
 
 const BestSelling = () => {
+  const router = useRouter();
+
   return (
     <div className='ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
       <div className='flex gap-[10px] items-center mb-[24px] text-[16px]'>
@@ -15,8 +18,14 @@ const BestSelling = () => {
             Best Selling Products
           </div>
         </div>
-        <div className='w-[30%] lg:w-[25%]'>
-          <Button bg={'#DB4444'} textColor={'white'}>
+        <div className='w-[25%] sm:w-25% lg:w-[25%]'>
+          <Button
+            bg={'#DB4444'}
+            textColor={'white'}
+            onClick={() => {
+              router.push('/products');
+            }}
+          >
             {' '}
             View All{' '}
           </Button>
