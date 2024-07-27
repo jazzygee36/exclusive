@@ -31,7 +31,6 @@ const SignUp = () => {
       setLoading(true);
       setToast(true);
       setLoading(false);
-      setLoading(false);
     }
   };
 

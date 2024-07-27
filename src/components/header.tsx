@@ -1,10 +1,11 @@
 'use client';
 import MyContext from '@/useContexts/store';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const context = useContext(MyContext);
 
   if (!context) {
@@ -69,7 +70,7 @@ export default function Header() {
 
   return (
     <div className=''>
-      <div className='h-[48px] w-full bg-[#000000] flex items-center justify-center  text-[#eee] text-sm'>
+      <div className='h-[48px] w-full px-2 text-center bg-[#000000] flex items-center justify-center  text-[#eee] text-sm'>
         <div className=''>
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
           ShopNow
@@ -78,42 +79,42 @@ export default function Header() {
         {/* <div className='relative left-[15%] cursor-pointer'>English</div> */}
       </div>
 
-      <div className='flex justify-between items-center ml-[8.5%] mr-[8.5%] mt-[47px] mb-[27px]'>
+      <div className='flex justify-between gap-2 items-center ml-[8.5%] mr-[8.5%] mt-[47px] mb-[27px]'>
         <div
-          onClick={() => router.push('/signup')}
-          className='font-bold text-[20px] text-[#000000] cursor-pointer'
+          // onClick={() => router.push('/home')}
+          className='font-bold text-[20px] text-[#000000] cursor-pointer '
         >
           Exclusive
         </div>
         <ul className='flex items-center gap-16 cursor-pointer'>
-          {user && (
+          {/* {pathname === '/home'
+            ? null
+            : user && (
+                <li
+                  className='hover:underline'
+                  onClick={() => router.push('/home')}
+                >
+                  Home
+                </li>
+              )} */}
+
+          {pathname === '/home' ? null : (
             <li
-              className='hover:underline'
-              onClick={() => router.push('/home')}
+              onClick={() => router.push('/about')}
+              className='hover:underline select-none'
             >
-              Home
+              About
             </li>
           )}
-          <li
-            onClick={() => router.push('/about')}
-            className='hover:underline select-none'
-          >
-            About
-          </li>
 
-          <li
-            className='hover:underline select-none'
-            onClick={() => router.push('/contact')}
-          >
-            Contact
-          </li>
-
-          {/* <li
-            className='hover:underline'
-            onClick={() => router.push('/signup')}
-          >
-            Sign Up
-          </li> */}
+          {pathname === '/home' ? null : (
+            <li
+              className='hover:underline select-none'
+              onClick={() => router.push('/contact')}
+            >
+              Contact
+            </li>
+          )}
         </ul>
         {user && (
           <div className='flex gap-4 items-center'>
@@ -122,7 +123,7 @@ export default function Header() {
                 <input
                   type='search'
                   id='default-search'
-                  className='block h-8 w-[95%] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                  className='block h-8 w-[100%] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                   placeholder='What are you looking for?'
                 />
 
@@ -145,7 +146,7 @@ export default function Header() {
                 </div>
               </div>
             </form>
-            <svg
+            {/* <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
@@ -158,7 +159,7 @@ export default function Header() {
                 strokeLinejoin='round'
                 d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z'
               />
-            </svg>
+            </svg> */}
             <div className='relative'>
               <div className='text-[#DB4444] relatve text-[12px]  font-bold '>
                 {orders}

@@ -11,7 +11,7 @@ import NewArrival from './newArrival';
 const HomePage = () => {
   return (
     <div>
-      <SalesList />
+      {/* <SalesList /> */}
       <FlashSales />
       <hr className='mb-16 mt-16  ml-[8.5%] mr-[8.5%]' />
       <Categories />

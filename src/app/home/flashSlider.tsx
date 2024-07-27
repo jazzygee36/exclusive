@@ -118,7 +118,7 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
               </div>
             ))}
           </div>
-          <div className='w-[20%] items-center m-auto mt-16'>
+          <div className='w-[100%] items-center m-auto mt-16'>
             <Button
               bg={'#DB4444'}
               textColor={'white'}

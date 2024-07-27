@@ -11,7 +11,7 @@ const FlashSales = () => {
       <div className='flex justify-between items-center'>
         <div className='flex gap-[87px] items-center'>
           <div className='text-[30px] font-[600]'>Flash Sales</div>
-          <div className='flex items-center gap-5'>
+          <div className='hidden  sm:hidden lg:flex items-center gap-5'>
             <div className='flex flex-col items-center '>
               <div className='text-[12px]'>Days</div>
               <div className='flex gap-2 items-center'>

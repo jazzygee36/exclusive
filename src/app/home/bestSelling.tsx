@@ -13,7 +13,7 @@ const BestSelling = () => {
         <div className='flex gap-[87px] items-center justify-between'>
           <div className='text-[30px] font-[600]'>Best Selling Products</div>
         </div>
-        <div className='w-[15%]'>
+        <div className='w-[50%]'>
           <Button bg={'#DB4444'} textColor={'white'}>
             {' '}
             View All{' '}

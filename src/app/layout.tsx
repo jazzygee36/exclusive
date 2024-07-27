@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <MyProvider key={''}>
+        <MyProvider>
           <Header />
           {children}
           <Footer />

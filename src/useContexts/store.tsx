@@ -14,10 +14,7 @@ interface MyContextType {
 const MyContext = createContext<MyContextType | undefined | any>(undefined);
 
 // Define a provider component
-export const MyProvider: FC<{ children: ReactNode; key: string }> = ({
-  children,
-  key,
-}) => {
+export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState(false);
   // const [userLogout, setUserLogout] = useState(true);
   const [orders, setOrders] = useState('');
