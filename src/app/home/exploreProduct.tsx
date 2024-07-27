@@ -12,7 +12,9 @@ const ExploreProduct = () => {
       </div>
       <div className='flex justify-between items-center'>
         <div className='flex gap-[87px] items-center justify-between'>
-          <div className='text-[30px] font-[600]'>Explore Our Products</div>
+          <div className='text-lg sm:text-sm lg:text-[30px] font-[600]'>
+            Explore Our Products
+          </div>
         </div>
         <div className='flex flex-row gap-3'>
           <div className='rounded-full h-[46px] w-[46px] bg-[#F5F5F5]  flex items-center justify-center cursor-pointer'>

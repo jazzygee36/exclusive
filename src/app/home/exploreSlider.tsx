@@ -151,7 +151,7 @@ const ExploreSlider = () => {
               </div>
             ))}
           </div>
-          <div className='w-[100%] items-center m-auto mt-16'>
+          <div className='w-[100%] sm:w-[100%] lg:w-[25%] items-center m-auto mt-16'>
             <Button
               bg={'#DB4444'}
               textColor={'white'}

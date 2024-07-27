@@ -11,17 +11,17 @@ import NewArrival from './newArrival';
 const HomePage = () => {
   return (
     <div>
-      {/* <SalesList /> */}
+      <SalesList />
       <FlashSales />
-      <hr className='mb-16 mt-16  ml-[8.5%] mr-[8.5%]' />
+      <hr className='mb-16 mt-16  ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]' />
       <Categories />
-      <hr className='mb-16 mt-16  ml-[8.5%] mr-[8.5%]' />
+      <hr className='mb-16 mt-16  ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]' />
       <BestSelling />
       <div className='flex justify-center'>
         <Image
           src={SpeakerFrame}
           alt='speaker'
-          className='mt-[140px] flex justify-center ml-[8.5%] mr-[8.5%] mb-[71px]'
+          className='mt-[140px] flex justify-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mb-[71px]'
         />
       </div>
       <ExploreProduct />

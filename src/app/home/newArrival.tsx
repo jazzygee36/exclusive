@@ -7,18 +7,20 @@ import Perfume from '../../assets/perfume.svg';
 
 const NewArrival = () => {
   return (
-    <div className='ml-[8.5%] mr-[8.5%] mt-[135px]'>
+    <div className='ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
       <div className='flex gap-[10px] items-center mb-[24px] text-[16px]'>
         <div className='h-[40px] w-[20px] bg-[#DB4444] rounded-md'></div>
         <div className='text-[#DB4444]'>Feature</div>
       </div>
       <div className=''>
         <div className='flex gap-[87px] items-center justify-between'>
-          <div className='text-[30px] font-[600]'>New Arrival</div>
+          <div className='text-lg sm:text-sm lg:text-[30px] font-[600]'>
+            New Arrival
+          </div>
         </div>
       </div>
 
-      <div className='mt-14 flex justify-between items-center gap-6'>
+      {/* <div className='mt-14 flex justify-between items-center gap-6'>
         <div>
           <Image src={Playstation} alt='ps' />
         </div>
@@ -31,8 +33,8 @@ const NewArrival = () => {
             <Image src={Perfume} alt='perfume' />
           </div>
         </div>
-      </div>
-      <div className='flex justify-around mt-[140px]'>
+      </div> */}
+      <div className='grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3  gap-7 mt-[140px]'>
         <div className='text-center'>
           <div className='bg-[#2F2E30] h-[80px] w-[80px] rounded-full m-auto flex justify-center items-center mb-6'>
             <svg

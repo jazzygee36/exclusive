@@ -44,7 +44,7 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
               </button>
             </div>
           </div> */}
-          <div className='row-container' id='slider'>
+          <div className='row-container ' id='slider'>
             {FlashItems.map((item) => (
               <div key={item.id} className='flex flex-col'>
                 <div className='row-item'>
@@ -118,7 +118,7 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
               </div>
             ))}
           </div>
-          <div className='w-[100%] items-center m-auto mt-16'>
+          <div className='w-[100%] sm:w-[100%] lg:w-[25%] items-center m-auto mt-16'>
             <Button
               bg={'#DB4444'}
               textColor={'white'}

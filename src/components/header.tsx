@@ -79,7 +79,7 @@ export default function Header() {
         {/* <div className='relative left-[15%] cursor-pointer'>English</div> */}
       </div>
 
-      <div className='flex justify-between gap-2 items-center ml-[8.5%] mr-[8.5%] mt-[47px] mb-[27px]'>
+      <div className='flex justify-between gap-2 items-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mt-[47px] mb-[27px]'>
         <div
           // onClick={() => router.push('/home')}
           className='font-bold text-[20px] text-[#000000] cursor-pointer '
@@ -98,7 +98,7 @@ export default function Header() {
                 </li>
               )} */}
 
-          {pathname === '/home' ? null : (
+          {pathname != '/signup' && pathname != '/login' ? null : (
             <li
               onClick={() => router.push('/about')}
               className='hover:underline select-none'
@@ -107,7 +107,7 @@ export default function Header() {
             </li>
           )}
 
-          {pathname === '/home' ? null : (
+          {pathname != '/signup' && pathname != '/login' ? null : (
             <li
               className='hover:underline select-none'
               onClick={() => router.push('/contact')}

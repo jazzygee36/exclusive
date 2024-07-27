@@ -3,14 +3,16 @@ import FlashSlider from './flashSlider';
 
 const FlashSales = () => {
   return (
-    <div className='ml-[8.5%] mr-[8.5%]'>
+    <div className='ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
       <div className='hidden lg:flex gap-[10px] items-center mb-[24px] text-[16px]  '>
         <div className='h-[40px] w-[20px] bg-[#DB4444] rounded-md'></div>
         <div className='text-[#DB4444]'>Todays</div>
       </div>
       <div className='flex justify-between items-center'>
         <div className='flex gap-[87px] items-center'>
-          <div className='text-[30px] font-[600]'>Flash Sales</div>
+          <div className='text-lg sm:text-sm lg:text-[30px] font-[600]'>
+            Flash Sales
+          </div>
           <div className='hidden  sm:hidden lg:flex items-center gap-5'>
             <div className='flex flex-col items-center '>
               <div className='text-[12px]'>Days</div>
