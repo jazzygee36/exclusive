@@ -2,6 +2,7 @@
 import MyContext from '@/useContexts/store';
 import { useRouter, usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
+import Search from './search';
 
 export default function Header() {
   const router = useRouter();
@@ -79,14 +80,14 @@ export default function Header() {
         {/* <div className='relative left-[15%] cursor-pointer'>English</div> */}
       </div>
 
-      <div className='flex justify-between gap-2 items-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mt-[47px] mb-[27px]'>
+      <div className='flex justify-between gap-2 items-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mt-[47px] mb-2 lg:mb-[27px]'>
         <div
           // onClick={() => router.push('/home')}
-          className='font-bold text-[20px] text-[#000000] cursor-pointer '
+          className='font-bold text-md lg:text-[20px] text-[#000000] cursor-pointer '
         >
           Exclusive
         </div>
-        <ul className='flex items-center gap-16 cursor-pointer'>
+        <ul className='flex items-center gap-4 text-md lg:text-[20px]   sm:gap-2 lg:gap-16  cursor-pointer'>
           {/* {pathname === '/home'
             ? null
             : user && ( */}
@@ -121,8 +122,12 @@ export default function Header() {
             </li>
           )}
         </ul>
+        <div className='hidden lg:block'>
+          <Search />
+        </div>
+
         {/* {user && ( */}
-        <div className='flex gap-4 items-center'>
+        {/* <div className='flex gap-4 items-center'>
           <form className='max-w-md mx-auto'>
             <div className='relative'>
               <input
@@ -151,20 +156,7 @@ export default function Header() {
               </div>
             </div>
           </form>
-          {/* <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='currentColor'
-              className='size-6 cursor-pointer'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z'
-              />
-            </svg> */}
+          
           <div className='relative'>
             <div className='text-[#DB4444] relatve text-[12px]  font-bold '>
               {orders}
@@ -225,8 +217,11 @@ export default function Header() {
               </ul>
             </div>
           )}
-        </div>
+        </div> */}
         {/* )} */}
+      </div>
+      <div className=' sm:block lg:hidden'>
+        <Search />
       </div>
       <hr />
     </div>
