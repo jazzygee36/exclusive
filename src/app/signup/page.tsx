@@ -5,7 +5,8 @@ import Signup from '../../assets/signup.svg';
 import HomeInput from '@/components/input';
 import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MyContext from '@/useContexts/store';
 import Loading from '@/components/loading';
 import Toast from '@/components/toast';
@@ -18,29 +19,34 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const { handleUser } = context;
-  const [toast, setToast] = useState(false);
+  // const [toast, setToast] = useState(false);
 
   const handleSignUp = () => {
     setLoading(true);
     if (userName.length && email.length && password.length) {
       localStorage.setItem(userName, password);
       setLoading(false);
+      success();
       router.push('/home');
       handleUser();
     } else {
       setLoading(true);
-      setToast(true);
+      error();
       setLoading(false);
     }
   };
-
+  const error = () => toast.error('Check the info provided !');
+  const success = () => toast.success('Successful !');
   return (
     <>
-      {toast && (
+      <div>
+        <ToastContainer position='top-right' />
+      </div>
+      {/* {toast && (
         <div>
           <Toast title={'Check the info you provided'} textColor={'red'} />
         </div>
-      )}
+      )} */}
 
       <div className='flex justify-center  gap-32 mt-7'>
         <div className='w-[50%] hidden lg:block'>
