@@ -60,7 +60,7 @@ export default function Search() {
       ),
       onClick: () => {
         localStorage.clear();
-        router.push('/signup');
+        router.push('/login');
         handleUserLogout();
       },
     },
