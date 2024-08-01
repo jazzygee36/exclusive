@@ -24,7 +24,7 @@ const HomeInput: FC<Props> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        required={required}
+        required
       />
     </div>
   );

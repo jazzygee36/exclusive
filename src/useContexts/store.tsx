@@ -18,7 +18,7 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState(false);
   // const [userLogout, setUserLogout] = useState(true);
   const [orders, setOrders] = useState(0);
-  console.log('oreders', orders);
+  // console.log('oreders', orders);
 
   const handleUser = () => {
     setUser(true);
