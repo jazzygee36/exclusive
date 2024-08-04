@@ -15,7 +15,7 @@ interface Props {
   handleCart?: () => void;
 }
 
-const FlashSlider: FC<Props> = ({ handleCart }) => {
+const FlashSlider: FC<Props> = () => {
   const router = useRouter();
   const context = useContext(MyContext);
   const { handleMyCart } = context;
@@ -103,7 +103,7 @@ const FlashSlider: FC<Props> = ({ handleCart }) => {
                   </Link>
                 </div>
                 <div
-                  onClick={() => handleMyCart(item.description)}
+                  onClick={() => handleMyCart(item)}
                   className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
                 >
                   add to Cart

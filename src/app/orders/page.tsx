@@ -6,7 +6,7 @@ import OrderTable from './orderTable';
 const Orders = () => {
   const router = useRouter();
   return (
-    <div className='ml-[8.5%] mr-[8.5%] '>
+    <div className='ml-[1%] lg:ml-[8.5%] mr-[1%] lg:mr-[8.5%] '>
       <div
         onClick={() => {
           router.back();
@@ -53,36 +53,6 @@ const Orders = () => {
         ))}
         
          </div> */}
-
-      <div className='w-[40%] m-auto flex flex-col justify-center border py-8 px-8 mt-16'>
-        <div className='font-semibold'> Cart Total</div>
-        <div className='flex justify-between mb-5 mt-5 font-normal'>
-          <div>Subtotal </div>
-          <div>N900 </div>
-        </div>
-        <hr />
-        <div className='flex justify-between mb-5 mt-5 font-normal'>
-          <div>Shipping fee </div>
-          <div>N500 </div>
-        </div>
-        <hr />
-
-        <div className='flex justify-between mb-5 mt-5 font-bold'>
-          <div>Total </div>
-          <div>N9500 </div>
-        </div>
-        <div className='w-[80%] items-center m-auto mt-5 px-5'>
-          <Button
-            bg={'#DB4444'}
-            textColor={'white'}
-            onClick={() => {
-              router.push('/products');
-            }}
-          >
-            Process to checkout
-          </Button>
-        </div>
-      </div>
     </div>
   );
 };

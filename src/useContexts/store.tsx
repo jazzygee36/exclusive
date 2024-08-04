@@ -8,17 +8,23 @@ interface MyContextType {
   // userLogout: boolean;
   handleMyCart: any;
   orders: number;
+  ordersList: [];
 }
 
+interface Des {
+  item: [];
+}
 // Create the context with a default value
 const MyContext = createContext<MyContextType | undefined | any>(undefined);
 
 // Define a provider component
 export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState(false);
-  // const [userLogout, setUserLogout] = useState(true);
-  const [orders, setOrders] = useState(0);
-  // console.log('oreders', orders);
+
+  const [orders, setOrders] = useState<number>(0);
+  const [ordersList, setOrdersList] = useState<Des[]>([]);
+  console.log(ordersList, 'ordersList');
+  console.log(orders, 'Ordersssssssssss');
 
   const handleUser = () => {
     setUser(true);
@@ -27,13 +33,24 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setUser(false);
   };
 
-  const handleMyCart = () => {
+  const handleMyCart = (item: []) => {
     setOrders((prev) => prev + 1);
+
+    const updatedArray: Des[] = [...ordersList, { item }];
+    setOrdersList(updatedArray);
+    // setOrdersList(item);
   };
 
   return (
     <MyContext.Provider
-      value={{ user, handleUser, handleUserLogout, handleMyCart, orders }}
+      value={{
+        user,
+        handleUser,
+        handleUserLogout,
+        handleMyCart,
+        orders,
+        ordersList,
+      }}
     >
       {children}
     </MyContext.Provider>

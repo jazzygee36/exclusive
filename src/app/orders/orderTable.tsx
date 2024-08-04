@@ -1,5 +1,25 @@
 'use client';
+import MyContext from '@/useContexts/store';
+import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
+
+import { useContext, useMemo, useState } from 'react';
+
 const OrderTable = () => {
+  const router = useRouter();
+
+  const context = useContext(MyContext);
+  const { ordersList } = context;
+  const [quantity, setQuantity] = useState(1);
+  // const [price, setPrice] = useState(0);
+
+  // const SubTotal = useMemo(() => {
+  //   return quantity * price;
+  // }, [quantity, price]);
+
+  if (!context) {
+    throw new Error('MyComponent must be used within a MyProvider');
+  }
   return (
     <div>
       <div className='overflow-x-auto mt-16'>
@@ -7,129 +27,75 @@ const OrderTable = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
             </tr>
           </thead>
-          <tbody>
-            {/* row 1 */}
-            <tr>
-              <td>
-                <div className='flex items-center gap-3'>
-                  <div className='avatar'>
-                    <div className='mask mask-squircle h-12 w-12'>
-                      <img
-                        src='https://img.daisyui.com/images/profile/demo/2@94.webp'
-                        alt='Avatar Tailwind CSS Component'
-                      />
+          {ordersList.map((orders: any) => {
+            return (
+              <tbody>
+                <tr>
+                  <div className='flex items-center gap-3'>
+                    <div className='avatar'>
+                      <div className='mask mask-squircle h-12 w-12 rounded bg-gray-400'>
+                        {/* <img src='' alt='Avatar Tailwind CSS Component' /> */}
+                      </div>
+                    </div>
+                    <div>
+                      <div className='font-semibold'>
+                        <td>{orders.item?.description}</td>
+                      </div>
+                      {/* <div className='text-sm opacity-50'>United States</div> */}
                     </div>
                   </div>
-                  <div>
-                    <div className='font-bold'>Hart Hagerty</div>
-                    <div className='text-sm opacity-50'>United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>500</td>
-              <td>Purple</td>
-              <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
-              </th>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <td>
-                <div className='flex items-center gap-3'>
-                  <div className='avatar'>
-                    <div className='mask mask-squircle h-12 w-12'>
-                      <img
-                        src='https://img.daisyui.com/images/profile/demo/3@94.webp'
-                        alt='Avatar Tailwind CSS Component'
-                      />
+                  <td>{orders.item?.price}</td>
+
+                  <td>
+                    <div className='flex items-center gap-4 justify-center border-2 w-16 rounded-md'>
+                      <div> {quantity} </div>
+                      <div>
+                        <div className='cursor-pointer'>+</div>
+                        <div className='cursor-pointer'>-</div>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div className='font-bold'>Brice Swyre</div>
-                    <div className='text-sm opacity-50'>China</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Carroll Group
-                <br />
-                <span className='badge badge-ghost badge-sm'>
-                  Tax Accountant
-                </span>
-              </td>
-              <td>Red</td>
-              <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
-              </th>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <td>
-                <div className='flex items-center gap-3'>
-                  <div className='avatar'>
-                    <div className='mask mask-squircle h-12 w-12'>
-                      <img
-                        src='https://img.daisyui.com/images/profile/demo/4@94.webp'
-                        alt='Avatar Tailwind CSS Component'
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className='font-bold'>Marjy Ferencz</div>
-                    <div className='text-sm opacity-50'>Russia</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Rowe-Schoen
-                <br />
-                <span className='badge badge-ghost badge-sm'>
-                  Office Assistant I
-                </span>
-              </td>
-              <td>Crimson</td>
-              <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
-              </th>
-            </tr>
-            {/* row 4 */}
-            <tr>
-              <td>
-                <div className='flex items-center gap-3'>
-                  <div className='avatar'>
-                    <div className='mask mask-squircle h-12 w-12'>
-                      <img
-                        src='https://img.daisyui.com/images/profile/demo/5@94.webp'
-                        alt='Avatar Tailwind CSS Component'
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className='font-bold'>Yancy Tear</div>
-                    <div className='text-sm opacity-50'>Brazil</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Wyman-Ledner
-                <br />
-                <span className='badge badge-ghost badge-sm'>
-                  Community Outreach Specialist
-                </span>
-              </td>
-              <td>Indigo</td>
-              <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
-              </th>
-            </tr>
-          </tbody>
+                  </td>
+                  <td>{orders.item?.price}</td>
+                </tr>
+              </tbody>
+            );
+          })}
         </table>
+      </div>
+      <div className='w-[90%] lg:w-[40%] m-auto flex flex-col justify-center border py-8 px-8 mt-16'>
+        <div className='font-semibold'> Cart Total</div>
+        <div className='flex justify-between mb-5 mt-5 font-normal'>
+          <div>Subtotal </div>
+          <div>N900 </div>
+        </div>
+        <hr />
+        <div className='flex justify-between mb-5 mt-5 font-normal'>
+          <div>Shipping fee </div>
+          <div>N500 </div>
+        </div>
+        <hr />
+
+        <div className='flex justify-between mb-5 mt-5 font-bold'>
+          <div>Total </div>
+          <div>N9500 </div>
+        </div>
+        <div className='w-[80%] items-center m-auto mt-5 px-5'>
+          <Button
+            bg={'#DB4444'}
+            textColor={'white'}
+            onClick={() => {
+              router.push('/products');
+            }}
+          >
+            Process to checkout
+          </Button>
+        </div>
       </div>
     </div>
   );
