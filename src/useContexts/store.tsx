@@ -44,14 +44,14 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
   console.log(priceList, 'priceList');
   const [qty, setQty] = useState(2);
   // console.log(priceList, 'Price');
-  // const handlePriceList = () => {
-  //   const extractedPrices = ordersList.map((order) => order.item?.price);
-  //   setPriceList(extractedPrices);
-  // };
+  const handlePriceList = () => {
+    const extractedPrices = ordersList.map((order: any) => order.item?.price);
+    setPriceList(extractedPrices);
+  };
 
-  // useEffect(() => {
-  //   handlePriceList();
-  // }, [ordersList, handlePriceList]);
+  useEffect(() => {
+    handlePriceList();
+  }, [ordersList, handlePriceList]);
 
   // const SubTotal = useMemo(() => {
   //   return priceList * qty;

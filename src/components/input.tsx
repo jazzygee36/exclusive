@@ -5,16 +5,9 @@ interface Props {
   value?: string;
   onChange?: any;
   // width:[]
-  required?: any;
 }
 
-const HomeInput: FC<Props> = ({
-  required,
-  placeholder,
-  type,
-  value,
-  onChange,
-}) => {
+const HomeInput: FC<Props> = ({ placeholder, type, value, onChange }) => {
   return (
     <div className='mt-10 w-[100%]'>
       <input

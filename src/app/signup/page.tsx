@@ -63,14 +63,14 @@ const SignUp = () => {
               type={'text'}
               value={userName}
               onChange={(e: any) => setUserName(e.target.value)}
-              // required={require}
+              // required={true}
             />
             <HomeInput
               placeholder={'Email'}
               type={'email'}
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
-              // required={require}
+              // required={true}
             />
             <HomeInput
               placeholder={'Password'}

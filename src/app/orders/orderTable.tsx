@@ -44,8 +44,8 @@ const OrderTable = () => {
           {ordersList.map((orders: any) => {
             console.log(orders.item.price, orders.price, 'orders');
             return (
-              <tbody>
-                <tr key={orders.id}>
+              <tbody key={orders.id}>
+                <tr>
                   <div className='flex items-center gap-3'>
                     <div className='avatar'>
                       <div className='mask mask-squircle h-12 w-12 rounded bg-gray-400'>
