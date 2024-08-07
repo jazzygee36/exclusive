@@ -10,12 +10,20 @@ const OrderTable = () => {
 
   const context = useContext(MyContext);
   const { ordersList } = context;
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
   // const [price, setPrice] = useState(0);
 
   // const SubTotal = useMemo(() => {
   //   return quantity * price;
   // }, [quantity, price]);
+  const [qty, setQty] = useState(2);
+  const [priceList, setPriceList] = useState<number>(0);
+
+  // console.log(priceList, 'Price');
+
+  const SubTotal = useMemo(() => {
+    return priceList * qty;
+  }, [priceList, qty]);
 
   if (!context) {
     throw new Error('MyComponent must be used within a MyProvider');
@@ -34,9 +42,10 @@ const OrderTable = () => {
             </tr>
           </thead>
           {ordersList.map((orders: any) => {
+            console.log(orders.item.price, orders.price, 'orders');
             return (
               <tbody>
-                <tr>
+                <tr key={orders.id}>
                   <div className='flex items-center gap-3'>
                     <div className='avatar'>
                       <div className='mask mask-squircle h-12 w-12 rounded bg-gray-400'>
@@ -54,14 +63,14 @@ const OrderTable = () => {
 
                   <td>
                     <div className='flex items-center gap-4 justify-center border-2 w-16 rounded-md'>
-                      <div> {quantity} </div>
+                      <div> 2 </div>
                       <div>
                         <div className='cursor-pointer'>+</div>
                         <div className='cursor-pointer'>-</div>
                       </div>
                     </div>
                   </td>
-                  <td>{orders.item?.price}</td>
+                  <td>{SubTotal}</td>
                 </tr>
               </tbody>
             );

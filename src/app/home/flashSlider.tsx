@@ -1,6 +1,6 @@
 'use client'; // for nextjs 13.4 user
 import Link from 'next/link';
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import MyContext from '@/useContexts/store';
 
 // import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
@@ -18,7 +18,7 @@ interface Props {
 const FlashSlider: FC<Props> = () => {
   const router = useRouter();
   const context = useContext(MyContext);
-  const { handleMyCart } = context;
+  const { handleMyCart, added } = context;
 
   // const slideLeft = () => {
   //   let slider = document.getElementById("slider");
@@ -103,10 +103,10 @@ const FlashSlider: FC<Props> = () => {
                   </Link>
                 </div>
                 <div
-                  onClick={() => handleMyCart(item)}
+                  onClick={() => handleMyCart(item, item.price)}
                   className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
                 >
-                  add to Cart
+                  {added ? 'Added' : 'add to cart'}
                 </div>
 
                 <div className='flex flex-col gap-2'>

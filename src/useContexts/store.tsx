@@ -1,5 +1,14 @@
 'use client';
-import { createContext, useState, ReactNode, FC, useEffect } from 'react';
+import {
+  createContext,
+  useState,
+  ReactNode,
+  FC,
+  useEffect,
+  useMemo,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 
 interface MyContextType {
   user: boolean;
@@ -9,11 +18,15 @@ interface MyContextType {
   handleMyCart: any;
   orders: number;
   ordersList: [];
+  SubTotal: number;
+  added: boolean;
 }
 
 interface Des {
   item: [];
+  price?: any;
 }
+type SetPriceList = Dispatch<SetStateAction<number[]>>;
 // Create the context with a default value
 const MyContext = createContext<MyContextType | undefined | any>(undefined);
 
@@ -23,8 +36,28 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [orders, setOrders] = useState<number>(0);
   const [ordersList, setOrdersList] = useState<Des[]>([]);
-  console.log(ordersList, 'ordersList');
-  console.log(orders, 'Ordersssssssssss');
+  const [added, setAdded] = useState(false);
+
+  const [priceList, setPriceList] = useState<number[]>([]);
+  // const obj = { priceList };
+
+  console.log(priceList, 'priceList');
+  const [qty, setQty] = useState(2);
+  // console.log(priceList, 'Price');
+  // const handlePriceList = () => {
+  //   const extractedPrices = ordersList.map((order) => order.item?.price);
+  //   setPriceList(extractedPrices);
+  // };
+
+  // useEffect(() => {
+  //   handlePriceList();
+  // }, [ordersList, handlePriceList]);
+
+  // const SubTotal = useMemo(() => {
+  //   return priceList * qty;
+  // }, [priceList, qty]);
+
+  // console.log(SubTotal, 'SubTotal');
 
   const handleUser = () => {
     setUser(true);
@@ -33,12 +66,19 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setUser(false);
   };
 
-  const handleMyCart = (item: []) => {
+  const handleMyCart = (item: [], price: number) => {
     setOrders((prev) => prev + 1);
 
     const updatedArray: Des[] = [...ordersList, { item }];
     setOrdersList(updatedArray);
-    // setOrdersList(item);
+
+    // const updatedPrice = [...ordersList, { item }];
+
+    // const updatedPrice
+
+    // setPriceList(updatedPrice);
+
+    // setAdded(true);
   };
 
   return (
@@ -50,6 +90,8 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
         handleMyCart,
         orders,
         ordersList,
+        // SubTotal,
+        added,
       }}
     >
       {children}
