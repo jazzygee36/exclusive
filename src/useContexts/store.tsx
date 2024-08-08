@@ -18,15 +18,15 @@ interface MyContextType {
   handleMyCart: any;
   orders: number;
   ordersList: [];
-  SubTotal: number;
-  added: boolean;
+  // SubTotal: number;
+  // added: boolean;
 }
 
 interface Des {
   item: [];
   price?: any;
 }
-type SetPriceList = Dispatch<SetStateAction<number[]>>;
+
 // Create the context with a default value
 const MyContext = createContext<MyContextType | undefined | any>(undefined);
 
@@ -36,22 +36,16 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [orders, setOrders] = useState<number>(0);
   const [ordersList, setOrdersList] = useState<Des[]>([]);
-  const [added, setAdded] = useState(false);
+  // const [added, setAdded] = useState(false);
 
   const [priceList, setPriceList] = useState<number[]>([]);
   // const obj = { priceList };
 
-  console.log(priceList, 'priceList');
-  const [qty, setQty] = useState(2);
-  // console.log(priceList, 'Price');
-  const handlePriceList = () => {
-    const extractedPrices = ordersList.map((order: any) => order.item?.price);
-    setPriceList(extractedPrices);
-  };
-
-  useEffect(() => {
-    handlePriceList();
-  }, [ordersList, handlePriceList]);
+  console.log(priceList, 'Price');
+  // const handlePriceList = () => {
+  //   const extractedPrices = ordersList.map((order: any) => order.item?.price);
+  //   setPriceList(extractedPrices);
+  // };
 
   // const SubTotal = useMemo(() => {
   //   return priceList * qty;
@@ -66,11 +60,12 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setUser(false);
   };
 
-  const handleMyCart = (item: [], price: number) => {
+  const handleMyCart = (item: [], id: number) => {
     setOrders((prev) => prev + 1);
 
     const updatedArray: Des[] = [...ordersList, { item }];
     setOrdersList(updatedArray);
+    // setAdded(true )
 
     // const updatedPrice = [...ordersList, { item }];
 
@@ -80,6 +75,10 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     // setAdded(true);
   };
+  // useEffect(() => {
+  //   const extractedPrices = ordersList.map((order: any) => order.item?.price);
+  //   setPriceList(extractedPrices);
+  // }, [ordersList]);
 
   return (
     <MyContext.Provider
@@ -91,7 +90,7 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
         orders,
         ordersList,
         // SubTotal,
-        added,
+        // added,
       }}
     >
       {children}

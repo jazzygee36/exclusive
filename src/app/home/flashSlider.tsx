@@ -103,10 +103,10 @@ const FlashSlider: FC<Props> = () => {
                   </Link>
                 </div>
                 <div
-                  onClick={() => handleMyCart(item, item.price)}
+                  onClick={() => handleMyCart(item, item.price, item.id)}
                   className='cursor-pointer h-[41px] flex items-center justify-center bg-black text-[16px] text-white text-center'
                 >
-                  {added ? 'Added' : 'add to cart'}
+                  add to cart
                 </div>
 
                 <div className='flex flex-col gap-2'>

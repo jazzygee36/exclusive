@@ -6,7 +6,7 @@ import HomeInput from '@/components/input';
 import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 import MyContext from '@/useContexts/store';
 import Loading from '@/components/loading';

@@ -6,24 +6,26 @@ import { useRouter } from 'next/navigation';
 import { useContext, useMemo, useState } from 'react';
 
 const OrderTable = () => {
+  const [productPrice, setProductPrice] = useState(0);
+  console.log(productPrice, 'productPrice');
   const router = useRouter();
 
   const context = useContext(MyContext);
   const { ordersList } = context;
-  // const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   // const [price, setPrice] = useState(0);
 
   // const SubTotal = useMemo(() => {
-  //   return quantity * price;
-  // }, [quantity, price]);
-  const [qty, setQty] = useState(2);
-  const [priceList, setPriceList] = useState<number>(0);
+  //   return productPrice * quantity;
+  // }, [productPrice, quantity]);
+  // const [qty, setQty] = useState(2);
+  // const [priceList, setPriceList] = useState<number>(0);
 
   // console.log(priceList, 'Price');
 
-  const SubTotal = useMemo(() => {
-    return priceList * qty;
-  }, [priceList, qty]);
+  // const SubTotal = useMemo(() => {
+  //   return priceList * qty;
+  // }, [priceList, qty]);
 
   if (!context) {
     throw new Error('MyComponent must be used within a MyProvider');
@@ -43,6 +45,7 @@ const OrderTable = () => {
           </thead>
           {ordersList.map((orders: any) => {
             console.log(orders.item.price, orders.price, 'orders');
+            // setProductPrice(orders?.item?.price);
             return (
               <tbody key={orders.id}>
                 <tr>
@@ -63,14 +66,14 @@ const OrderTable = () => {
 
                   <td>
                     <div className='flex items-center gap-4 justify-center border-2 w-16 rounded-md'>
-                      <div> 2 </div>
+                      <div> {quantity} </div>
                       <div>
                         <div className='cursor-pointer'>+</div>
                         <div className='cursor-pointer'>-</div>
                       </div>
                     </div>
                   </td>
-                  <td>{SubTotal}</td>
+                  <td>{orders.item?.price}</td>
                 </tr>
               </tbody>
             );
