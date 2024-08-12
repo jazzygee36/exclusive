@@ -121,7 +121,7 @@ export default function Search() {
             />
           </svg>
         </div>
-        {user && (
+        {localStorage.getItem('token') && (
           <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='button' className=' m-1'>
               <div className='cursor-pointer'>

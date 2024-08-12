@@ -10,19 +10,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import MyContext from '@/useContexts/store';
 import Loading from '@/components/loading';
+import axios from 'axios';
 
 const Login = () => {
-  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const context = useContext(MyContext);
+  const [errorMessage, setErrorMessage] = useState('');
+  console.log(errorMessage, 'errorMessage');
 
   const { handleUser } = context;
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
-      console.log();
+      const res = await axios.post(`http://localhost:9000/api/login`, {
+        email,
+        password,
+      });
+      const token = localStorage.setItem('token', res?.data?.token);
+      console.log(token, 'token');
+      setErrorMessage(res.data.message);
+      if (res?.status === 200) {
+        setLoading(false);
+        success();
+        router.push('/home');
+      }
     } catch {
       setLoading(true);
       error();
@@ -30,7 +45,7 @@ const Login = () => {
     }
   };
   const error = () => toast.error('Check the info provided !');
-  const success = () => toast.success('Successful !');
+  const success = () => toast.success('Welcome !');
   return (
     <>
       <div>
@@ -49,10 +64,10 @@ const Login = () => {
             </div>
 
             <HomeInput
-              placeholder={'User name'}
+              placeholder={'Enter email'}
               type={'text'}
-              value={userName}
-              onChange={(e: any) => setUserName(e.target.value)}
+              value={email}
+              onChange={(e: any) => setEmail(e.target.value)}
             />
             <HomeInput
               placeholder={'Password'}

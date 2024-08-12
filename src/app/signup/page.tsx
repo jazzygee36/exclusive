@@ -20,6 +20,8 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const { handleUser } = context;
   // const [toast, setToast] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  console.log(errorMessage, 'errorMessage');
 
   const handleSignUp = async () => {
     try {
@@ -31,9 +33,9 @@ const SignUp = () => {
       });
       success();
       setLoading(false);
+      setErrorMessage(res.data.message);
 
       router.push('/login');
-      console.log('resssss', res.data);
     } catch (err) {
       setLoading(true);
       error();
