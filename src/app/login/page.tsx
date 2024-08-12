@@ -20,16 +20,10 @@ const Login = () => {
 
   const { handleUser } = context;
 
-  const handleLogin = () => {
-    setLoading(true);
-    if (userName.length && password.length) {
-      localStorage.setItem(userName, password);
-      setLoading(false);
-      router.push('/home');
-      success();
-
-      handleUser();
-    } else {
+  const handleLogin = async () => {
+    try {
+      console.log();
+    } catch {
       setLoading(true);
       error();
       setLoading(false);

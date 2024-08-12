@@ -29,8 +29,8 @@ const Categories = () => {
             >
               <path
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
+                strokeLinecap='round'
+                strokeLinejoin='round'
                 strokeWidth='2'
                 d='M5 12h14M5 12l4-4m-4 4 4 4'
               />
@@ -48,8 +48,8 @@ const Categories = () => {
             >
               <path
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
+                strokeLinecap='round'
+                strokeLinejoin='round'
                 strokeWidth='2'
                 d='M19 12H5m14 0-4 4m4-4-4-4'
               />

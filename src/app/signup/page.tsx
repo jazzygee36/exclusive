@@ -10,26 +10,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyContext from '@/useContexts/store';
 import Loading from '@/components/loading';
 import Toast from '@/components/toast';
-
+import axios from 'axios';
 const SignUp = () => {
   const context = useContext(MyContext);
   const router = useRouter();
-  const [userName, setUserName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const { handleUser } = context;
   // const [toast, setToast] = useState(false);
 
-  const handleSignUp = () => {
-    setLoading(true);
-    if (userName.length && email.length && password.length) {
-      localStorage.setItem(userName, password);
-      setLoading(false);
+  const handleSignUp = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.post(`http://localhost:9000/api/signup`, {
+        username,
+        email,
+        password,
+      });
       success();
-      router.push('/home');
-      handleUser();
-    } else {
+      setLoading(false);
+
+      router.push('/login');
+      console.log('resssss', res.data);
+    } catch (err) {
       setLoading(true);
       error();
       setLoading(false);
@@ -61,8 +66,8 @@ const SignUp = () => {
             <HomeInput
               placeholder={'User name'}
               type={'text'}
-              value={userName}
-              onChange={(e: any) => setUserName(e.target.value)}
+              value={username}
+              onChange={(e: any) => setUsername(e.target.value)}
               // required={true}
             />
             <HomeInput
@@ -81,7 +86,7 @@ const SignUp = () => {
             />
 
             <div className='mt-12'>
-              <Button bg={'#DB4444'} textColor={'white'} onClick={handleSignUp}>
+              <Button onClick={handleSignUp} bg={'#DB4444'} textColor={'white'}>
                 {loading ? <Loading /> : 'Create Account'}
               </Button>
             </div>

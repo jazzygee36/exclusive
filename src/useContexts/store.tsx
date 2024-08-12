@@ -41,7 +41,7 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [priceList, setPriceList] = useState<number[]>([]);
   // const obj = { priceList };
 
-  console.log(priceList, 'Price');
+  // console.log(priceList, 'Price');
   // const handlePriceList = () => {
   //   const extractedPrices = ordersList.map((order: any) => order.item?.price);
   //   setPriceList(extractedPrices);
