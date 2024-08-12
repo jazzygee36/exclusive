@@ -3,7 +3,7 @@ import Image from 'next/image';
 import AboutImg from '../../assets/aboutImg.svg';
 import Samson from '../../assets/samson.jpg';
 import { useRouter } from 'next/navigation';
-export default function About() {
+const About = () => {
   const router = useRouter();
   return (
     <>
@@ -137,4 +137,6 @@ export default function About() {
       </div>
     </>
   );
-}
+};
+
+export default About;
