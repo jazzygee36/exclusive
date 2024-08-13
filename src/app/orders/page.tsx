@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Button from '@/components/button';
 import OrderTable from './orderTable';
+import withAuth from '@/components/hooks/protectedRoutes';
 
 const Orders = () => {
   const router = useRouter();
@@ -57,4 +58,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default withAuth(Orders);

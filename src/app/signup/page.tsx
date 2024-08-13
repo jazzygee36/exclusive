@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MyContext from '@/useContexts/store';
 import Loading from '@/components/loading';
-import Toast from '@/components/toast';
+
 import axios from 'axios';
 const SignUp = () => {
   const context = useContext(MyContext);
@@ -26,23 +26,28 @@ const SignUp = () => {
   const handleSignUp = async () => {
     try {
       setLoading(true);
-      const res = await axios.post(`http://localhost:9000/api/signup`, {
+      if (!username || !email || !password) {
+        setErrorMessage('All fields are required');
+      }
+      const response = await axios.post(`http://localhost:9000/api/signup`, {
         username,
         email,
         password,
       });
+      console.log(response?.data?.message, 'messages');
       success();
       setLoading(false);
-      setErrorMessage(res.data.message);
+      setErrorMessage(response.data.message);
 
       router.push('/login');
     } catch (err) {
+      console.error(err, 'errrrrrrrr');
       setLoading(true);
       error();
       setLoading(false);
     }
   };
-  const error = () => toast.error('Check the info provided !');
+  const error = () => toast.error(errorMessage);
   const success = () => toast.success('Successful !');
   return (
     <>
