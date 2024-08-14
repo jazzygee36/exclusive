@@ -19,22 +19,26 @@ const Login = () => {
   const router = useRouter();
   const context = useContext(MyContext);
   const [errorMessage, setErrorMessage] = useState('');
-  console.log(errorMessage, 'errorMessage');
+  console.log(errorMessage, 'errorMessage token');
 
   const { handleUser } = context;
 
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const res = await axios.post(`http://localhost:9000/api/login`, {
-        email,
-        password,
-      });
-      const token = localStorage.setItem('token', res?.data?.token);
-      console.log(token, 'token');
-      setErrorMessage(res.data.message);
-      if (res?.status === 200) {
+      const res = await axios.post(
+        `https://exclusiveshopping.vercel.app/api/login`,
+        {
+          email,
+          password,
+        }
+      );
+      // const token = localStorage.setItem('token', res?.data?.token);
+      // console.log(token, 'token');
+      setErrorMessage(res?.data?.token);
+      if (res?.data.token) {
         setLoading(false);
+        localStorage.setItem('token', res?.data?.token);
         success();
         router.push('/home');
       }

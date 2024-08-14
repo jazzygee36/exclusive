@@ -24,16 +24,23 @@ const SignUp = () => {
   console.log(errorMessage, 'errorMessage');
 
   const handleSignUp = async () => {
+    setLoading(true);
+
     try {
       setLoading(true);
       if (!username || !email || !password) {
         setErrorMessage('All fields are required');
       }
-      const response = await axios.post(`http://localhost:9000/api/signup`, {
-        username,
-        email,
-        password,
-      });
+      setLoading(false);
+
+      const response = await axios.post(
+        `https://exclusiveshopping.vercel.app/api/signup`,
+        {
+          username,
+          email,
+          password,
+        }
+      );
       console.log(response?.data?.message, 'messages');
       success();
       setLoading(false);
