@@ -8,7 +8,14 @@ export default function Search() {
   const pathname = usePathname();
   const context = useContext(MyContext);
 
-  const token = localStorage.getItem('token');
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token');
+      setToken(storedToken);
+    }
+  }, []);
 
   if (!context) {
     throw new Error('MyComponent must be used within a MyProvider');
