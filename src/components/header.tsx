@@ -5,11 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import Search from './search';
 import axios from 'axios';
 
-interface Props {
-  id: number;
-}
-
-export default function Header({ id }: Props) {
+export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const context = useContext(MyContext);
