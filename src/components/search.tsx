@@ -1,21 +1,18 @@
 'use client';
 import MyContext from '@/useContexts/store';
+import axios from 'axios';
 import { useRouter, usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
-
+interface Props {
+  username: string;
+}
 export default function Search() {
   const router = useRouter();
   const pathname = usePathname();
   const context = useContext(MyContext);
 
-  const [token, setToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedToken = localStorage.getItem('token');
-      setToken(storedToken);
-    }
-  }, []);
+  const { profile, handleUserLogout, orders, loginUser, handleLoginUsers } =
+    context;
 
   if (!context) {
     throw new Error('MyComponent must be used within a MyProvider');
@@ -28,7 +25,7 @@ export default function Search() {
       },
       icon: (
         <svg
-          className='w-6 h-6 text-gray-800 dark:text-white'
+          className='w-4 h-4 text-gray-800 dark:text-white'
           aria-hidden='true'
           xmlns='http://www.w3.org/2000/svg'
           width='24'
@@ -50,7 +47,7 @@ export default function Search() {
       title: 'Logout',
       icon: (
         <svg
-          className='w-6 h-6 text-gray-800 dark:text-white'
+          className='w-4 h-4 text-gray-800 dark:text-white'
           aria-hidden='true'
           xmlns='http://www.w3.org/2000/svg'
           width='24'
@@ -71,11 +68,10 @@ export default function Search() {
         localStorage.clear();
         router.push('/login');
         handleUserLogout();
+        handleLoginUsers();
       },
     },
   ];
-
-  const { user, handleUserLogout, orders } = context;
 
   return (
     <div className=' mb-4 lg:mb-0  ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
@@ -130,30 +126,36 @@ export default function Search() {
             />
           </svg>
         </div>
-        {token && (
+        {/* {profile} */}
+        {loginUser && (
           <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='button' className=' m-1'>
-              <div className='cursor-pointer'>
-                <svg
-                  className='w-6 h-6 text-[#DB4444] dark:text-white'
-                  aria-hidden='true'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='32'
-                  height='32'
-                  fill='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    fillRule='evenodd'
-                    d='M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z'
-                    clipRule='evenodd'
-                  />
-                </svg>
+              <div className='text-sm  text-[#DB4444]  cursor-pointer font-semibold flex gap-2 items-center'>
+                <div className=''>{profile}</div>
+                <div>
+                  <svg
+                    className='w-4 h-4 text-gray-800 dark:text-white'
+                    aria-hidden='true'
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke='currentColor'
+                      stroke-linecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='m19 9-7 7-7-7'
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
             <ul
               tabIndex={0}
-              className='dropdown-content menu bg-[#F5F5F5] text-black w-52 rounded-box z-[1] px-4 py-2 shadow'
+              className='dropdown-content menu rou bg-[#fefefe] text-black w-40 rounded-box z-[1] px-4 py-2 shadow'
             >
               {Users.map((user) => (
                 <div

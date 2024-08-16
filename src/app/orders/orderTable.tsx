@@ -7,7 +7,7 @@ import { useContext, useMemo, useState } from 'react';
 
 const OrderTable = () => {
   const [productPrice, setProductPrice] = useState(0);
-  console.log(productPrice, 'productPrice');
+
   const router = useRouter();
 
   const context = useContext(MyContext);

@@ -14,7 +14,6 @@ const BestSellingSlider = () => {
   const [isHovered, setIsHovered] = useState<boolean | any>(false);
 
   const handleCartId = (id: any) => {
-    console.log(id, 'idsss');
     setIsHovered(id);
   };
 

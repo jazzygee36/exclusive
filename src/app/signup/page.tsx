@@ -14,14 +14,14 @@ import axios from 'axios';
 const SignUp = () => {
   const context = useContext(MyContext);
   const router = useRouter();
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const { handleUser } = context;
   // const [toast, setToast] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  console.log(errorMessage, 'errorMessage');
+  // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleSignUp = async () => {
     setLoading(true);
@@ -41,10 +41,10 @@ const SignUp = () => {
           password,
         }
       );
-      console.log(response?.data?.message, 'messages');
+
       success();
       setLoading(false);
-      setErrorMessage(response.data.message);
+      setErrorMessage(response?.data?.message);
 
       router.push('/login');
     } catch (err) {
@@ -79,21 +79,21 @@ const SignUp = () => {
             </div>
             <HomeInput
               placeholder={'User name'}
-              type={'text'}
+              type='text'
               value={username}
               onChange={(e: any) => setUsername(e.target.value)}
               // required={true}
             />
             <HomeInput
               placeholder={'Email'}
-              type={'email'}
+              type='email'
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
-              // required={true}
+              //     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             />
             <HomeInput
               placeholder={'Password'}
-              type={'password'}
+              type='password'
               value={password}
               onChange={(e: any) => setPassword(e.target.value)}
               // required={require}

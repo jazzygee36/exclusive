@@ -18,10 +18,10 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const context = useContext(MyContext);
-  const [errorMessage, setErrorMessage] = useState('');
-  console.log(errorMessage, 'errorMessage token');
+  // const [errorMessage, setErrorMessage] = useState('');
+  // console.log(errorMessage, 'errorMessage token');
 
-  const { handleUser } = context;
+  const { handleUser, handleLoginUsers } = context;
 
   const handleLogin = async () => {
     setLoading(true);
@@ -33,10 +33,10 @@ const Login = () => {
           password,
         }
       );
-      // const token = localStorage.setItem('token', res?.data?.token);
-      // console.log(token, 'token');
-      setErrorMessage(res?.data?.token);
-      if (res?.data.token) {
+
+      handleLoginUsers();
+
+      if (res?.data?.token) {
         setLoading(false);
         localStorage.setItem('token', res?.data?.token);
         success();
@@ -69,7 +69,7 @@ const Login = () => {
 
             <HomeInput
               placeholder={'Enter email'}
-              type={'text'}
+              type={'email'}
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
             />

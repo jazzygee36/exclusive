@@ -3,71 +3,21 @@ import MyContext from '@/useContexts/store';
 import { useRouter, usePathname } from 'next/navigation';
 import { useContext, useEffect, useState } from 'react';
 import Search from './search';
+import axios from 'axios';
 
-export default function Header() {
+interface Props {
+  id: number;
+}
+
+export default function Header({ id }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const context = useContext(MyContext);
+  const { user, profile, handleUserLogout, orders, loginUser } = context;
 
-  if (!context) {
-    throw new Error('MyComponent must be used within a MyProvider');
-  }
-  const Users = [
-    {
-      title: 'My Order',
-      onClick: () => {
-        router.push('/orders');
-      },
-      icon: (
-        <svg
-          className='w-6 h-6 text-gray-800 dark:text-white'
-          aria-hidden='true'
-          xmlns='http://www.w3.org/2000/svg'
-          width='24'
-          height='24'
-          fill='none'
-          viewBox='0 0 24 24'
-        >
-          <path
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            d='M12 6h8m-8 6h8m-8 6h8M4 16a2 2 0 1 1 3.321 1.5L4 20h5M4 5l2-1v6m-2 0h4'
-          />
-        </svg>
-      ),
-    },
-    {
-      title: 'Logout',
-      icon: (
-        <svg
-          className='w-6 h-6 text-gray-800 dark:text-white'
-          aria-hidden='true'
-          xmlns='http://www.w3.org/2000/svg'
-          width='24'
-          height='24'
-          fill='none'
-          viewBox='0 0 24 24'
-        >
-          <path
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            d='M6 6h12M6 18h12m-5-8h5m-5 4h5M9.5 9v6L6 12l3.5-3Z'
-          />
-        </svg>
-      ),
-      onClick: () => {
-        localStorage.clear();
-        router.push('/signup');
-        handleUserLogout();
-      },
-    },
-  ];
-
-  const { user, handleUserLogout, orders } = context;
+  // if (!context) {
+  //   throw new Error('MyComponent must be used within a MyProvider');
+  // }
 
   return (
     <div className=''>
@@ -80,7 +30,7 @@ export default function Header() {
         {/* <div className='relative left-[15%] cursor-pointer'>English</div> */}
       </div>
 
-      <div className='flex justify-between gap-2 items-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mt-[47px] mb-2 lg:mb-[27px]'>
+      <div className='flex justify-between  items-center ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%] mt-[47px] mb-2 lg:mb-[27px]'>
         <div
           // onClick={() => router.push('/home')}
           className='font-bold text-md lg:text-[20px] text-[#000000] cursor-pointer '
@@ -113,7 +63,7 @@ export default function Header() {
             Contact
           </li>
 
-          {pathname != '/signup' && !user && (
+          {!profile && (
             <li
               className='hover:underline select-none'
               onClick={() => router.push('/signup')}
@@ -219,10 +169,11 @@ export default function Header() {
           )}
         </div> */}
         {/* )} */}
+        <div className=' sm:block lg:hidden'>
+          <Search />
+        </div>
       </div>
-      <div className=' sm:block lg:hidden'>
-        <Search />
-      </div>
+
       <hr />
     </div>
   );

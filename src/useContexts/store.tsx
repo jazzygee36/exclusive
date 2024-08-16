@@ -1,4 +1,5 @@
 'use client';
+import axios from 'axios';
 import {
   createContext,
   useState,
@@ -18,6 +19,8 @@ interface MyContextType {
   handleMyCart: any;
   orders: number;
   ordersList: [];
+  loginUser: boolean;
+  profile: string;
   // SubTotal: number;
   // added: boolean;
 }
@@ -36,28 +39,39 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [orders, setOrders] = useState<number>(0);
   const [ordersList, setOrdersList] = useState<Des[]>([]);
-  // const [added, setAdded] = useState(false);
+  const [loginUser, setLoginUser] = useState(false);
+  const [profile, setProfile] = useState('');
 
-  const [priceList, setPriceList] = useState<number[]>([]);
-  // const obj = { priceList };
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem('token');
 
-  // console.log(priceList, 'Price');
-  // const handlePriceList = () => {
-  //   const extractedPrices = ordersList.map((order: any) => order.item?.price);
-  //   setPriceList(extractedPrices);
-  // };
+      if (!token) {
+        return;
+      }
+      const res = await axios.get(
+        `https://exclusiveshopping.vercel.app/api/profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-  // const SubTotal = useMemo(() => {
-  //   return priceList * qty;
-  // }, [priceList, qty]);
-
-  // console.log(SubTotal, 'SubTotal');
+      setProfile(res.data.username);
+    } catch (error) {
+      return error;
+    }
+  };
 
   const handleUser = () => {
     setUser(true);
   };
   const handleUserLogout = () => {
     setUser(false);
+  };
+  const handleLoginUsers = () => {
+    setLoginUser(!loginUser);
   };
 
   const handleMyCart = (item: [], id: number) => {
@@ -75,10 +89,10 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     // setAdded(true);
   };
-  // useEffect(() => {
-  //   const extractedPrices = ordersList.map((order: any) => order.item?.price);
-  //   setPriceList(extractedPrices);
-  // }, [ordersList]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <MyContext.Provider
@@ -89,8 +103,11 @@ export const MyProvider: FC<{ children: ReactNode }> = ({ children }) => {
         handleMyCart,
         orders,
         ordersList,
+        loginUser,
+        handleLoginUsers,
         // SubTotal,
         // added,
+        profile,
       }}
     >
       {children}
