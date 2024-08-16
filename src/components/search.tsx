@@ -74,7 +74,7 @@ export default function Search() {
   ];
 
   return (
-    <div className=' mb-4 lg:mb-0  ml-3  lg:ml-[8.5%] mr-3 lg:mr-[8.5%]'>
+    <div className=' mb-4 lg:mb-0  ml-3  lg:ml-[8.5%] '>
       {/* {user && ( */}
       <div className='flex gap-2 items-center '>
         <form className='w-full mx-auto'>
