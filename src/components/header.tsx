@@ -72,13 +72,11 @@ export default function Header() {
           <div className='hidden lg:block'>
             <Search />
           </div>
-
-          <div className=' sm:block lg:hidden'>
-            <Search />
-          </div>
         </div>
       </div>
-
+      <div className=' sm:block lg:hidden'>
+        <Search />
+      </div>
       <hr />
     </div>
   );

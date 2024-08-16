@@ -131,7 +131,7 @@ export default function Search() {
           <div className='dropdown dropdown-end'>
             <div tabIndex={0} role='button' className=' m-1'>
               <div className='text-sm  text-[#DB4444]  cursor-pointer font-semibold flex gap-2 items-center'>
-                <div className=''>{profile}</div>
+                <div className=''>{profile?.[1]}</div>
                 <div>
                   <svg
                     className='w-4 h-4 text-gray-800 dark:text-white'
