@@ -74,9 +74,9 @@ export default function Search() {
   ];
 
   return (
-    <div className=' mb-4 lg:mb-0  ml-3  lg:ml-[8.5%] '>
+    <div className='    '>
       {/* {user && ( */}
-      <div className='flex gap-2 items-center '>
+      <div className='flex gap-2 items-center  '>
         <form className='w-full mx-auto'>
           <div className='relative'>
             <input
@@ -126,15 +126,16 @@ export default function Search() {
             />
           </svg>
         </div>
-        {/* {profile} */}
-        {loginUser && (
-          <div className='dropdown dropdown-end'>
-            <div tabIndex={0} role='button' className=' m-1'>
-              <div className='text-sm  text-[#DB4444]  cursor-pointer font-semibold flex gap-2 items-center'>
-                <div className=''>{profile?.[1]}</div>
+        {profile && (
+          <div className='dropdown dropdown-end hidden lg:block'>
+            <div tabIndex={0} role='button' className=' m-1 '>
+              <div className='text-sm  text-white  cursor-pointer font-semibold flex gap-1 items-center'>
+                <div className='rounded-[100%]  bg-[#DB4444] capitalize py-1 px-2'>
+                  {`${profile?.[0]}`}
+                </div>
                 <div>
                   <svg
-                    className='w-4 h-4 text-gray-800 dark:text-white'
+                    className=' w-4 h-4 text-gray-800 dark:text-white'
                     aria-hidden='true'
                     xmlns='http://www.w3.org/2000/svg'
                     width='24'
@@ -170,6 +171,7 @@ export default function Search() {
             </ul>
           </div>
         )}
+        {/* {profile} */}
       </div>
     </div>
   );
